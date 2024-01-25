@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+const {mkdir} = require('fs/promises')
 const path = require('path')
 
 //
@@ -38,7 +39,7 @@ async function runCertbot() {
 async function createChallengeDirectory() {
     const challengeDir = path.join(__dirname, 'public', '.well-known', 'acme-challenge');
     try {
-      await fs.mkdir(challengeDir, { recursive: true });
+      await mkdir(challengeDir, { recursive: true });
     } catch (error) {
       if (error.code !== 'EEXIST') {
         throw error;
