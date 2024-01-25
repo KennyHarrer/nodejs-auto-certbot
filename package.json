@@ -1,0 +1,18 @@
+{
+  "name": "nodejs-auto-certbot",
+  "version": "1.0.0",
+  "description": "uses auth hooks to automatically generate https certs with certbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "util": "^0.12.5"
+  }
+}
