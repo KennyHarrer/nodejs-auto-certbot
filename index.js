@@ -17,10 +17,10 @@ app.listen(async () => {
 });
 
 // CERT BOT FUNC
-
+//sudo certbot certonly --manual --non-interactive -m contact@privaterelay.me --preferred-challenges=http --manual-auth-hook /home/fastd1/nodejs-auto-certbot/auth.sh --manual-cleanup-hook /home/fastd1/nodejs-auto-certbot/cleanup.sh -d fastdl.privaterelay.me
 async function runCertbot() {
     try {
-        const certbotCommand = `certbot certonly --manual --preferred-challenges=http --manual-auth-hook ${path.join(__dirname,'auth.sh')} --manual-cleanup-hook ${path.join(__dirname,'cleanup.sh')} -d ${process.env.certbotDomain}`;
+        const certbotCommand = `certbot certonly --manual --non-interactive -m ${process.env.email} --preferred-challenges=http --manual-auth-hook "bash ${path.join(__dirname,'auth.sh')}" --manual-cleanup-hook "bash ${path.join(__dirname,'cleanup.sh')}" -d ${process.env.certbotDomain}`;
 
         const { stdout, stderr } = await exec(certbotCommand);
 
