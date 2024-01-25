@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 //
 
-app.listen(async () => {
+app.listen(80, async () => {
     await createChallengeDirectory()
     await runCertbot();
     process.exit()
