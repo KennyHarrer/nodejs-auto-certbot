@@ -21,7 +21,7 @@ app.listen(80, async () => {
 // CERT BOT FUNC
 async function runCertbot() {
     try {
-        const certbotCommand = `certbot certonly --manual --non-interactive -m ${process.env.certbotContactEmail} --preferred-challenges=http --manual-auth-hook "bash ${path.join(__dirname,'auth.sh')}" --manual-cleanup-hook "bash ${path.join(__dirname,'cleanup.sh')}" -d ${process.env.certbotDomain}`;
+        const certbotCommand = `certbot certonly --agree-tos --manual --non-interactive -m ${process.env.certbotContactEmail} --preferred-challenges=http --manual-auth-hook "bash ${path.join(__dirname,'auth.sh')}" --manual-cleanup-hook "bash ${path.join(__dirname,'cleanup.sh')}" -d ${process.env.certbotDomain}`;
 
         const { stdout, stderr } = await exec(certbotCommand);
 
